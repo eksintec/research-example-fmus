@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<fmiModelDescription fmiVersion="2.0" modelName="modapto-cfp" guid="f1715eec76a04251bbfbf91b2a6bc735" description="Modapto carbon footprint model" author="Christian Wolf, EKS InTec GmbH" copyright="© EKS Intec GmbH 2024" generationTool="EKS FMU Generator" version="1.0.3-2" license="mixed MIT and BSD-2">
+    <!--This file was automatically generated. Please do not modify manually.-->
+    <CoSimulation modelIdentifier="modapto-cfp" canGetAndSetFMUstate="false" canSerializeFMUstate="false" canHandleVariableCommunicationStepSize="true" canNotUseMemoryManagementFunctions="true" canBeInstantiatedOnlyOncePerProcess="false"/>
+    <LogCategories>
+        <Category name="logEvents"/>
+    </LogCategories>
+    <DefaultExperiment startTime="0.0" stepSize="1.0"/>
+    <ModelVariables>
+        <ScalarVariable name="p" valueReference="0" description="The current power used" causality="input" variability="discrete">
+            <Real start="0.0"/>
+        </ScalarVariable>
+        <ScalarVariable name="cMix" valueReference="1" description="Carbon density of used energy mix" causality="input" variability="discrete">
+            <Real start="1"/>
+        </ScalarVariable>
+        <ScalarVariable name="meas_start" valueReference="2" description="Start the carbon footprint measurement" causality="input" variability="discrete">
+            <Boolean start="false"/>
+        </ScalarVariable>
+        <ScalarVariable name="meas_stop" valueReference="3" description="Stop the carbon footprint measurement" causality="input" variability="discrete">
+            <Boolean start="false"/>
+        </ScalarVariable>
+        <ScalarVariable name="meas_reset" valueReference="4" description="Restart the carbon footprint measurement" causality="input" variability="discrete">
+            <Boolean start="false"/>
+        </ScalarVariable>
+        <ScalarVariable name="dm_CO2" valueReference="5" description="The CO2 mass flow emitted" causality="output" variability="discrete">
+            <Real/>
+        </ScalarVariable>
+        <ScalarVariable name="m_Total" valueReference="6" description="Total CO2 mass emitted" causality="output" variability="discrete">
+            <Real/>
+        </ScalarVariable>
+        <ScalarVariable name="measurement_t_start" valueReference="7" description="The start time of the footprint measurement" causality="output" variability="discrete">
+            <Real/>
+        </ScalarVariable>
+        <ScalarVariable name="measurement_t_stop" valueReference="8" description="The stop time of the footprint measurement" causality="output" variability="discrete">
+            <Real/>
+        </ScalarVariable>
+        <ScalarVariable name="measurement_started" valueReference="9" description="Flag that indicates a valid value for measurement.t_start" causality="output" variability="discrete">
+            <Boolean/>
+        </ScalarVariable>
+        <ScalarVariable name="measurement_stopped" valueReference="10" description="Flag that indicates a valid value for measurement.t_stop" causality="output" variability="discrete">
+            <Boolean/>
+        </ScalarVariable>
+        <ScalarVariable name="m_Meas" valueReference="11" description="The cummulated CO2 mass" causality="local" variability="discrete" initial="exact">
+            <Real start="0"/>
+        </ScalarVariable>
+        <ScalarVariable name="E_Tot" valueReference="12" description="The cummulated used energy" causality="output" variability="discrete">
+            <Real/>
+        </ScalarVariable>
+    </ModelVariables>
+    <ModelStructure>
+        <Outputs>
+            <Unknown index="6" dependencies="1 2"/>
+            <Unknown index="7"/>
+            <Unknown index="8" dependencies="3 5"/>
+            <Unknown index="9" dependencies="4 5"/>
+            <Unknown index="10" dependencies="3 5"/>
+            <Unknown index="11" dependencies="4 5"/>
+            <Unknown index="13"/>
+        </Outputs>
+        <InitialUnknowns>
+            <Unknown index="6"/>
+            <Unknown index="7"/>
+            <Unknown index="8"/>
+            <Unknown index="9"/>
+            <Unknown index="10"/>
+            <Unknown index="11"/>
+            <Unknown index="13"/>
+        </InitialUnknowns>
+    </ModelStructure>
+</fmiModelDescription>
