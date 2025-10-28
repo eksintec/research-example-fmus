@@ -1,7 +1,8 @@
 # Modapto Carbon Footprint FMU
 
-**CAREFUL: RESEARCH RESULT**
-Please be warned that the content in this folder is the result of a research project. **It is no productive code!** The code serves as a prototype to support the research project(s) involved and communicate results. You can use the code under the license terms but without warranty, mostly for educational purposes.
+> [!WARNING]  
+> **CAREFUL: RESEARCH RESULT**  
+> Please be warned that the content in this folder is the result of a research project. **It is no productive code!** The code serves as a prototype to support the research project(s) involved and communicate results. You can use the code under the license terms but without warranty, mostly for educational purposes.
 
 This FMU was developed in the [Modapto project](https://modapto.eu/) as a result of the research carried out there.
 
