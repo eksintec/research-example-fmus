@@ -3,3 +3,7 @@
 /model.so
 /model.dll
 /modapto-cfp.fmu
+
+*.o
+*.d
+
