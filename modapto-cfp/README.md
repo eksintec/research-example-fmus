@@ -1,14 +1,14 @@
-# Modapto Carbon Footprint FMU
+# MODAPTO Carbon Footprint FMU
 
 > [!WARNING]  
 > **CAREFUL: RESEARCH RESULT**  
 > Please be warned that the content in this folder is the result of a research project. **It is no productive code!** The code serves as a prototype to support the research project(s) involved and communicate results. You can use the code under the license terms but without warranty, mostly for educational purposes.
 
-This FMU was developed in the [Modapto project](https://modapto.eu/) as a result of the research carried out there.
+This FMU was developed in the [MODAPTO project](https://modapto.eu/) as a result of the research carried out there and published in binary form as [.fmu file](https://github.com/Modapto/sustainability-analytics). It was adjusted to the [FMU-Leitfaden](https://diamond-project.de/downloads/files/DIAMOND_Leitfaden_zur_Anwendung_des_FMI_Standards_im_Kontext_der_virtuellen_Inbetriebnahme.pdf) specified in the [DIAMOND project](https://diamond-project.de/).
 
 As part of the work in the project, the sustainability of production plants and modules are to be evaluated. This optimization can be done both on basis of the raw energy consumption and the emitted carbon dioxide during production of the same amount of energy.
 
-This FMU calculates the energy and the carbon footprint based on the used (electrical) power of a productin plant and the momentary power mix.
+This FMU calculates the energy and the carbon footprint based on the used (electrical) power of a production plant and the momentary power mix.
 For a more in depth documentation, see the FMU-internal documentation.
 
 This repository/folder contains the sources to build the FMU from scratch.
