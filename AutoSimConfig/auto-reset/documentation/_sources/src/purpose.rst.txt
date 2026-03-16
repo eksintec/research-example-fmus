@@ -1,0 +1,13 @@
+Purpose of the FMU
+==================
+
+The estimation the carbon emissions is not trivial.
+In fact, there are, depending on the context, different kinds and interpretations on how to do this best.
+
+One part of the carbon emissions of a product are the emissions produced while the product is produced.
+To estimate these emissions, a simple assumption is made:
+the main power source (be it electrical, chemical, or whatever else) emits a certain amount of CO2 while generated or used.
+Based on the energy flow rate (physically the power) and the emission density, the total carbon emission flow can be calculated.
+
+For more convenient usage, a total energy measurement is implemented as well.
+This allows to measure the energy used in a certain time span as well as the corresponding carbon emissions.

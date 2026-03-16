@@ -1,0 +1,13 @@
+Changelog and versions
+======================
+
+.. list-table::
+    :header-rows: 1
+
+    * - Version
+      - Date
+      - Description
+
+    * - 0.0.1
+      -
+      - Initial version published

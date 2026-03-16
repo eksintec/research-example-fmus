@@ -1,0 +1,8 @@
+/.build/
+
+/model.so
+/model.dll
+/autosimconfig-cfp-continuous.fmu
+
+*.o
+*.d

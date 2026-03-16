@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Usage of the model &#8212; MODAPTO CFP FMU  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Inputs and outputs" href="io.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="usage-of-the-model">
+<h1>Usage of the model<a class="headerlink" href="#usage-of-the-model" title="Link to this heading">¶</a></h1>
+<p>The model takes the current power <span class="math notranslate nohighlight">\(p\)</span> consumed by the plant as an input.
+You have to provide this value by some external measurement or estimation.
+Together with the mix factor <span class="math notranslate nohighlight">\(c_\text{Mix}\)</span>, the FMU can estimate the carbon emissions carried out.</p>
+<p>In a first step, the emission flow <span class="math notranslate nohighlight">\(\dot m_{CO_2}\)</span> is calculated:
+this is the amount of carbon dioxide emitted per second caused by the plant operation.</p>
+<p>By integration of both <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(\dot m_{CO_2}\)</span>, the energy and the carbon emissions can be evaluated.</p>
+<div class="math notranslate nohighlight">
+\[E_\text{Tot} = \int_{t_1}^{t_2} p \, dt  \qquad    m_{CO_2} = \int_{t_1}^{t_2} \dot m_{CO_2} \, dt\]</div>
+<p>The time span <span class="math notranslate nohighlight">\([t_1,t_2]\)</span> must be defined in order to evaluate the integrals.
+In the practical implementation, there are the signals <code class="docutils literal notranslate"><span class="pre">meas_start</span></code> and <code class="docutils literal notranslate"><span class="pre">meas_stop</span></code>.
+Upon a positive edge of these, the internal structures assume the current time as <span class="math notranslate nohighlight">\(t_1\)</span> or <span class="math notranslate nohighlight">\(t_2\)</span> respectively.</p>
+<p>For convenient usage, the current simulation time is stored in <code class="docutils literal notranslate"><span class="pre">measurement_t_start</span></code> or <code class="docutils literal notranslate"><span class="pre">measurement_t_stop</span></code> for later evaluation.
+The flags <code class="docutils literal notranslate"><span class="pre">measurement_started</span></code> and <code class="docutils literal notranslate"><span class="pre">measurement_stopped</span></code> allow to quickly elaborate the current state of the measurement:
+initially, both are <code class="docutils literal notranslate"><span class="pre">false</span></code>.
+Upon positive edges of the <code class="docutils literal notranslate"><span class="pre">meas_*</span></code> signals, the corresponding time stamp is stored and the corresponding flag indicates a successful transition.</p>
+<p>To allow for multiple measurements, especially in virtual commissioning, a rest is implemented.
+The reset is triggered by means of a positive edge on <code class="docutils literal notranslate"><span class="pre">meas_reset</span></code>.
+All internal integration is reset, the time span removed (the validity flags and the time stamps).</p>
+<p>Please note:
+Restarting the measurement is possible without prior reset of the states.
+The integration will continue after the restart.
+This way, certain time spans can be <em>cut out</em> if needed.
+To actually reset the measurement to zero, please use the <code class="docutils literal notranslate"><span class="pre">meas_reset</span></code> flag.</p>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">MODAPTO CFP FMU</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="purpose.html">Purpose of the FMU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Inputs and outputs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage of the model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog and versions</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="io.html" title="previous chapter">Inputs and outputs</a></li>
+      <li>Next: <a href="license.html" title="next chapter">License</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Christian Wolf.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/src/usage.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

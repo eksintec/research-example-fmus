@@ -1,0 +1,77 @@
+Inputs and outputs
+==================
+
+The FMU has the following inputs and outputs:
+
+Inputs
+------
+
+.. list-table::
+    :header-rows: 1
+    
+    * - Symbol
+      - Unit(s)
+      - Description
+
+    * - ``p``
+      - W
+      - Momentary power consumed by the plant under consideration.
+
+    * - ``cMix``
+      - kg / J
+      - The mix factor :math:`c_{\text{Mix}}` defining the emission density in the primary energy mix.
+
+    * - ``meas_start``
+      - 
+      - Flag to indicate the start of the measurement period. Positive edge triggers measurement start or continuation.
+
+    * - ``meas_stop``
+      - 
+      - Flag to indicate the end of the measurement period. Positive edge triggers the finishing.
+
+    * - ``meas_reset``
+      - 
+      - Flag to reset the measurement period. Positive edge triggers reset.
+
+
+Outputs
+-------
+
+.. list-table::
+    :header-rows: 1
+    
+    * - Symbol
+      - Unit
+      - Description
+
+    * - ``dm_CO2``
+      - kg / s
+      - The momentary carbon emission flow caused by the plant operation.
+
+    * - ``m_Total``
+      - kg
+      - The total mass of carbon dioxide emitted during the measurement.
+
+    * - ``measurement_t_start``
+      - s
+      - The timestamp (since the simulation start) when the measurement started.
+
+    * - ``measurement_t_stop``
+      - s
+      - The timestamp (since the simulation start) when the measurement ended.
+
+    * - ``measurement_started``
+      - 
+      - Indicator if the measurement has been started in the past. 
+
+    * - ``measurement_stopped``
+      - 
+      - Indicator if the measurement has been ended in the past.
+
+    * - ``m_Meas``
+      - kg
+      - Internal integration value of emitted carbon dioxide.
+
+    * - ``E_Tot``
+      - J
+      - The energy used during the measurement phase.

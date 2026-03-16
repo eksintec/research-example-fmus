@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<fmiTerminalsAndIcons fmiVersion="3.0.2">
+    <GraphicalRepresentation>
+        <Icon x1="-100" y1="-100" x2="100" y2="100"/>
+    </GraphicalRepresentation>
+</fmiTerminalsAndIcons>

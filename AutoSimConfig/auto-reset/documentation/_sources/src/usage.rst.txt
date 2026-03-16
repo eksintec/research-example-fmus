@@ -1,0 +1,29 @@
+Usage of the model
+==================
+
+The model takes the current power :math:`p` consumed by the plant as an input.
+You have to provide this value by some external measurement or estimation.
+Together with the mix factor :math:`c_\text{Mix}`, the FMU can estimate the carbon emissions carried out.
+
+In a first step, the emission flow :math:`\dot m_{CO_2}` is calculated:
+this is the amount of carbon dioxide emitted per second caused by the plant operation.
+
+By integration of both :math:`p` and :math:`\dot m_{CO_2}`, the energy and the carbon emissions can be evaluated.
+
+.. math::
+    
+    E_\text{Tot} = \int_{t_1}^{t_2} p \, dt  \qquad    m_{CO_2} = \int_{t_1}^{t_2} \dot m_{CO_2} \, dt
+
+The time span :math:`[t_1,t_2]` must be defined in order to evaluate the integrals.
+In the practical implementation, there are the signals ``meas_start`` and ``meas_stop``.
+Upon a positive edge of these, the internal structures assume the current time as :math:`t_1` or :math:`t_2` respectively.
+
+For convenient usage, the current simulation time is stored in ``measurement_t_start`` or ``measurement_t_stop`` for later evaluation.
+The flags ``measurement_started`` and ``measurement_stopped`` allow to quickly elaborate the current state of the measurement:
+initially, both are ``false``.
+Upon positive edges of the ``meas_*`` signals, the corresponding time stamp is stored and the corresponding flag indicates a successful transition.
+
+To allow for multiple measurements, especially in virtual commissioning, a rest is implemented.
+The reset is triggered automatically by starting the measurement.
+No manual reset is required.
+All internal integration is reset, the time span removed (the validity flags and the time stamps).
