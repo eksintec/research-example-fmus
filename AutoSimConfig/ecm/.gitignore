@@ -1,0 +1,8 @@
+/.build/
+
+/model.so
+/model.dll
+/autosimconfig-ecm-power.fmu
+
+*.o
+*.d

@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+<fmiModelDescription fmiVersion="2.0" modelName="autosimconfig-ecm-power" guid="993718e3f9c8424db2c76b382dbff281" description="Electrical Energy Consumption Model for a 6-axis robot" author="Christian Wolf, EKS InTec GmbH" copyright="© EKS Intec GmbH 2024" generationTool="EKS FMU Generator" version="1.0.0-1" license="mixed MIT and BSD-2">
+    <!--This file was automatically generated. Please do not modify manually.-->
+    <CoSimulation modelIdentifier="autosimconfig-ecm-power" canGetAndSetFMUstate="false" canSerializeFMUstate="false" canHandleVariableCommunicationStepSize="true" canNotUseMemoryManagementFunctions="true" canBeInstantiatedOnlyOncePerProcess="false"/>
+    <LogCategories>
+        <Category name="logEvents"/>
+    </LogCategories>
+    <ModelVariables>
+        <ScalarVariable name="max_power[0]" valueReference="0" description="Max motor power allowed (W)" causality="parameter" variability="fixed">
+            <Real start="0"/>
+        </ScalarVariable>
+        <ScalarVariable name="max_power[1]" valueReference="1" description="Max motor power allowed (W)" causality="parameter" variability="fixed">
+            <Real start="0"/>
+        </ScalarVariable>
+        <ScalarVariable name="max_power[2]" valueReference="2" description="Max motor power allowed (W)" causality="parameter" variability="fixed">
+            <Real start="0"/>
+        </ScalarVariable>
+        <ScalarVariable name="max_power[3]" valueReference="3" description="Max motor power allowed (W)" causality="parameter" variability="fixed">
+            <Real start="0"/>
+        </ScalarVariable>
+        <ScalarVariable name="max_power[4]" valueReference="4" description="Max motor power allowed (W)" causality="parameter" variability="fixed">
+            <Real start="0"/>
+        </ScalarVariable>
+        <ScalarVariable name="max_power[5]" valueReference="5" description="Max motor power allowed (W)" causality="parameter" variability="fixed">
+            <Real start="0"/>
+        </ScalarVariable>
+        <ScalarVariable name="start_measurement" valueReference="6" description="requests measurement start for next step" causality="input" variability="discrete">
+            <Boolean start="0"/>
+        </ScalarVariable>
+        <ScalarVariable name="stop_measurement" valueReference="7" description="requests measurement stop for next step" causality="input" variability="discrete">
+            <Boolean start="0"/>
+        </ScalarVariable>
+        <ScalarVariable name="reset_measurement" valueReference="8" description="requests measurement reset for next step" causality="input" variability="discrete">
+            <Boolean start="0"/>
+        </ScalarVariable>
+        <ScalarVariable name="power[0]" valueReference="9" description="Motor power of robot axis (normalized to 100)" causality="input" variability="discrete">
+            <Real start="0"/>
+        </ScalarVariable>
+        <ScalarVariable name="power[1]" valueReference="10" description="Motor power of robot axis (normalized to 100)" causality="input" variability="discrete">
+            <Real start="0"/>
+        </ScalarVariable>
+        <ScalarVariable name="power[2]" valueReference="11" description="Motor power of robot axis (normalized to 100)" causality="input" variability="discrete">
+            <Real start="0"/>
+        </ScalarVariable>
+        <ScalarVariable name="power[3]" valueReference="12" description="Motor power of robot axis (normalized to 100)" causality="input" variability="discrete">
+            <Real start="0"/>
+        </ScalarVariable>
+        <ScalarVariable name="power[4]" valueReference="13" description="Motor power of robot axis (normalized to 100)" causality="input" variability="discrete">
+            <Real start="0"/>
+        </ScalarVariable>
+        <ScalarVariable name="power[5]" valueReference="14" description="Motor power of robot axis (normalized to 100)" causality="input" variability="discrete">
+            <Real start="0"/>
+        </ScalarVariable>
+        <ScalarVariable name="robot.used_power" valueReference="15" description="Total electrical power used by robot (W)" causality="output" variability="discrete">
+            <Real/>
+        </ScalarVariable>
+        <ScalarVariable name="robot.used_energy" valueReference="16" description="Integrated electrical power used by robot (Ws=J)" causality="output" variability="discrete">
+            <Real/>
+        </ScalarVariable>
+        <ScalarVariable name="timestamp_start" valueReference="17" description="Time of starting the measurement" causality="output" variability="discrete">
+            <Real/>
+        </ScalarVariable>
+        <ScalarVariable name="timestamp_stop" valueReference="18" description="Time of finishing the measurement" causality="output" variability="discrete">
+            <Real/>
+        </ScalarVariable>
+        <ScalarVariable name="measurement_state" valueReference="19" description="Phase of the measurement" causality="output" variability="discrete">
+            <Integer/>
+        </ScalarVariable>
+    </ModelVariables>
+    <ModelStructure>
+        <Outputs>
+            <Unknown index="16"/>
+            <Unknown index="17"/>
+            <Unknown index="18"/>
+            <Unknown index="19"/>
+            <Unknown index="20"/>
+        </Outputs>
+        <InitialUnknowns>
+            <Unknown index="16"/>
+            <Unknown index="17"/>
+            <Unknown index="18"/>
+            <Unknown index="19"/>
+            <Unknown index="20"/>
+        </InitialUnknowns>
+    </ModelStructure>
+</fmiModelDescription>

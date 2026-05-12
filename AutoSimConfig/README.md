@@ -6,3 +6,5 @@ Each folder represents a differnt variant of a model with different skills.
 Each folder contains the sources of a model to compare.
 All models estimate the carbon footprint and energy footprint of a machine or plant based on the current (electrical) power consumption.
 The different models have (slightly) different behavior depending on the notion of how a reset should be interpreted and realized.
+
+Additionally, there is the ECM model that allows to estimate the overall power consumption of a robot based on the individual robots.
