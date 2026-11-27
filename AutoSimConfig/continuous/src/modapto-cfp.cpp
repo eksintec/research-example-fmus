@@ -20,6 +20,8 @@ ModaptoCarbonFootprint::ModaptoCarbonFootprint(
     resetValues();
 }
 
+static float cMixFactor = 1.0/ 3.6e6;
+
 void ModaptoCarbonFootprint::resetValues()
 {
     tStart = tStop = 0;
@@ -34,7 +36,7 @@ void ModaptoCarbonFootprint::resetTime(fmi2Real startTime)
 
 void ModaptoCarbonFootprint::increaseTime(fmi2Real h)
 {
-    dMass = power * cMix;
+    dMass = power * cMix * cMixFactor;
 
     if (isPositiveEdge(lastStart, start))
     {

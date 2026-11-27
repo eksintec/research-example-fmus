@@ -3,7 +3,7 @@
 
 namespace EKS::Modapto::CarbonFootprint {
 
-const char* modelToken = "a442fd8b82a24d3194c43ff1c8c24b57";
-const char* modelVersion = "1.0.0-1";
+const char* modelToken = "5aa6d7b7919a4046af1e5b0521814a39";
+const char* modelVersion = "1.1.0-1";
 
 }
